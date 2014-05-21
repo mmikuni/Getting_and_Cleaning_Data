@@ -38,3 +38,6 @@ tidy.data <- cbind(subject, y, x)
 #aggregates the data
 agg.tidy.data <- aggregate(tidy.data[, 3:81], by = list(tidy.data$Subject, tidy.data$Activity), FUN = mean)
 colnames(agg.tidy.data)[1:2] <- c("Subject", "Activity")
+
+write.table(tidy.data, "tidy.data.txt")
+write.table(agg.tidy.data, "agg.tidy.data.txt")
