@@ -40,16 +40,6 @@ tidy.data <- cbind(subject, y, x)
 agg.tidy.data <- aggregate(tidy.data[, 3:81], by = list(tidy.data$Subject, tidy.data$Activity), FUN = mean)
 colnames(agg.tidy.data)[1:2] <- c("Subject", "Activity")
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 #writes the csvs
 write.table(tidy.data, "tidy_data.txt")
 write.table(agg.tidy.data, "agg_tidy_data.txt")
-=======
-write.table(tidy.data, "tidy_data.txt")
-write.table(agg.tidy.data, "agg_tidy_data.txt")
->>>>>>> eb55caaeaa5af9765c290462f8ee8cb4dec0f231
-=======
-write.table(tidy.data, "tidy_data.txt")
-write.table(agg.tidy.data, "agg_tidy_data.txt")
->>>>>>> eb55caaeaa5af9765c290462f8ee8cb4dec0f231
