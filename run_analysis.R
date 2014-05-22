@@ -23,6 +23,7 @@ mean.std.cols <- grep('mean|std', features[, 2])
 #subsets based on only columns with mean or std
 x <- x[, mean.std.cols]
 names(x) <- features[mean.std.cols,][, 2]
+names(x) <- gsub("\\(\\)", "", names(x))
 
 #activities
 activities <- read.table("UCI HAR Dataset/activity_labels.txt")
@@ -38,3 +39,7 @@ tidy.data <- cbind(subject, y, x)
 #aggregates the data
 agg.tidy.data <- aggregate(tidy.data[, 3:81], by = list(tidy.data$Subject, tidy.data$Activity), FUN = mean)
 colnames(agg.tidy.data)[1:2] <- c("Subject", "Activity")
+
+#writes the csvs
+write.table(tidy.data, "tidy_data.txt")
+write.table(agg.tidy.data, "agg_tidy_data.txt")
